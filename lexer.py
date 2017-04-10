@@ -3,7 +3,7 @@ def lexer():
 	tokens=[]
 	num_stack=[]
 	lines=[]
-	tokens=['for','i','in','range(0,1,2)',':','{']
+	tokens=['for','i','in','range(0,1,2)',':','{','for','j','in','range(0,1,1)','{','}','}']
 	def open_file(filename):
 		data=open(filename,"r").read()
 		data +="<EOF>"

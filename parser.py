@@ -1,6 +1,6 @@
 ##
 ## 30/03/17: Done till the starting { bracket in the for loop. Have to plan something about the closing bracket
-## 
+## 10/04/17: Completed basic incremental for loop
 ##
 ##
 
@@ -15,6 +15,7 @@ output=[]
 def parser():
 
 	tokenIndex=0
+	brackets=0	#to keep a track of number of open brackets
 	
 	while tokens[tokenIndex] != '<EOF>':	# while loop was used because it is easier to increment the value of iterator inside the loop
 		token=tokens[tokenIndex]	# Just to save us from typing tokens[tokenIndex] in the whole loop
@@ -53,10 +54,19 @@ def parser():
 			
 			else:
 				tokenIndex+=1
+				brackets+=1
 				output.append(tokens[tokenIndex])	#At this position, the tab was replaced by bracket, 
 									#this is the starting bracket
-			
+									
 		tokenIndex+=1
+		
+		if tokens[tokenIndex]=='{':
+			brackets+=1
+			output.append(tokens[tokenIndex])
+		
+		if tokens[tokenIndex] == '}':
+			brackets-=1
+			output.append(tokens[tokenIndex])
 		
 	print output
 		
