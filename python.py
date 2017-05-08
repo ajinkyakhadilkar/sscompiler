@@ -1,5 +1,7 @@
 from sys import *
 import lexer
 import parser
+import codemaker
 
-parser.parser()
+codemaker.codemaker()
+
